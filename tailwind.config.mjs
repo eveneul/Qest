@@ -8,6 +8,13 @@ export default {
 				black: '#23262D',
 				white: '#fbfbfb',
 				background: '#F4F1EC',
+				begie: '#CFC6B5',
+				point: '#F5C923',
+				error: '#FF5A3F', // 빨강
+				success: '#0070EF', // 파랑
+				check: '#33A23C', // 초록
+				disabled: '#858585', // 회색
+				reject: '#AB60FF',
 				foreground: 'hsl(var(--foreground))',
 				card: {
 					DEFAULT: 'hsl(var(--card))',
