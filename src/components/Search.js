@@ -1,32 +1,32 @@
-'use client'
+'use client';
 
-import {useEffect, useState} from 'react'
-import {Button} from './ui/button'
-import {Search as SearchIcon} from 'lucide-react'
-import {Input} from './ui/input'
-import {CommandDialog, CommandInput} from './ui/command'
-import {DialogTitle} from './ui/dialog'
+import { useEffect, useState } from 'react';
+import { Button } from './ui/button';
+import { Search as SearchIcon } from 'lucide-react';
+import { Input } from './ui/input';
+import { CommandDialog, CommandInput } from './ui/command';
+import { DialogTitle } from './ui/dialog';
 
 export default function Search() {
-	const [query, setQuery] = useState('')
-	const [open, setOpen] = useState(false)
+	const [query, setQuery] = useState('');
+	const [open, setOpen] = useState(false);
 
 	useEffect(() => {
 		const keyDown = (e) => {
 			if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
-				e.preventDefault()
-				setOpen((open) => !open)
+				e.preventDefault();
+				setOpen((open) => !open);
 			}
-		}
+		};
 
-		document.addEventListener('keydown', keyDown)
+		document.addEventListener('keydown', keyDown);
 
-		return () => document.removeEventListener('keydown', down)
-	}, [])
+		return () => document.removeEventListener('keydown', keyDown);
+	}, []);
 
 	useEffect(() => {
-		console.log(open)
-	}, [open])
+		console.log(open);
+	}, [open]);
 
 	return (
 		<>
@@ -44,5 +44,5 @@ export default function Search() {
 				<CommandInput placeholder='프로젝트명을 입력해 주세요.' />
 			</CommandDialog>
 		</>
-	)
+	);
 }
