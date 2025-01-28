@@ -3,6 +3,7 @@ import './globals.css';
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 import QestSidebar from '@/components/Sidebar';
 import Header from '@/components/Header';
+import { Toaster } from '@/components/ui/toaster';
 
 const geistSans = Geist({
 	variable: '--font-geist-sans',
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
 					<div className='w-full grid grid-row-2 grid-rows-[auto_1fr]'>
 						<Header />
 						<main className='p-7'>{children}</main>
+						<Toaster />
 					</div>
 				</SidebarProvider>
 			</body>

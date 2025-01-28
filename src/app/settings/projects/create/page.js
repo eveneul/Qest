@@ -2,9 +2,15 @@
 
 import { supabaseClient } from '@/lib/supabase';
 import { useForm } from 'react-hook-form';
+import { useToast } from '@/hooks/use-toast';
+import { ToastAction } from '@/components/ui/toast';
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function CreateProject() {
 	const { register, handleSubmit, reset } = useForm();
+	const { toast } = useToast();
+	const router = useRouter();
 
 	const onSubmit = async (data) => {
 		const { name, description, status, startDate } = data;
@@ -12,6 +18,16 @@ export default function CreateProject() {
 
 		if (error) {
 			console.log(error, 'error');
+			toast({
+				variant: 'destructive',
+				title: '프로젝트를 생성하지 못했어요.',
+				description: `잠시후에 재시도하거나 개발자에게 문의해 주세요.`,
+			});
+		} else {
+			toast({
+				title: '프로젝트가 정상적으로 등록되었습니다!',
+			});
+			reset();
 		}
 	};
 	return (
